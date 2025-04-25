@@ -84,3 +84,32 @@ window.addEventListener('load', () => {
         });
     });
 });
+
+// Only prevent default for internal anchor links
+function enableSmoothScroll(selector) {
+    document.querySelectorAll(selector).forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const target = document.getElementById(href.slice(1));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+}
+
+enableSmoothScroll('a[href^="#"]');
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Hamburger menu toggle (if present)
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+});
