@@ -1,37 +1,3 @@
-// Updated JavaScript for interactivity and animations
-const navLinks = document.querySelectorAll('header a');
-navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-        const href = e.target.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            e.preventDefault();
-            const targetId = href.slice(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    });
-});
-
-// Added functionality for all buttons to ensure they work seamlessly
-const buttons = document.querySelectorAll('button, .contact-btn, a[href^="#"]');
-buttons.forEach(button => {
-    button.addEventListener('click', e => {
-        if (button.tagName === 'A') {
-            const href = button.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.slice(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        }
-    });
-});
-
 // GSAP animations
 window.addEventListener('load', () => {
     gsap.from('.hero h1', { duration: 1, y: -50, opacity: 0 });
@@ -83,33 +49,4 @@ window.addEventListener('load', () => {
             onEnter: () => section.classList.add('visible')
         });
     });
-});
-
-// Only prevent default for internal anchor links
-function enableSmoothScroll(selector) {
-    document.querySelectorAll(selector).forEach(link => {
-        link.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                const target = document.getElementById(href.slice(1));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        });
-    });
-}
-
-enableSmoothScroll('a[href^="#"]');
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Hamburger menu toggle (if present)
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    }
 });
