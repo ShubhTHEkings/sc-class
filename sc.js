@@ -2,10 +2,15 @@
 const navLinks = document.querySelectorAll('header a');
 navLinks.forEach(link => {
     link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = e.target.getAttribute('href').slice(1);
-        const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        const href = e.target.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.slice(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     });
 });
 
@@ -13,12 +18,15 @@ navLinks.forEach(link => {
 const buttons = document.querySelectorAll('button, .contact-btn, a[href^="#"]');
 buttons.forEach(button => {
     button.addEventListener('click', e => {
-        if (button.tagName === 'A' && button.getAttribute('href').startsWith('#')) {
-            e.preventDefault();
-            const targetId = button.getAttribute('href').slice(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+        if (button.tagName === 'A') {
+            const href = button.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.slice(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         }
     });
