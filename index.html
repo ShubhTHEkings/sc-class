@@ -123,6 +123,139 @@
                 display: flex;
             }
         }
+
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            header {
+                padding: 0.5rem 1rem;
+            }
+
+            header .h-20 {
+                height: 3.5rem;
+            }
+
+            header .text-xl {
+                font-size: 1.1rem;
+            }
+
+            /* Home section adjustments */
+            #home .h-24 {
+                height: 3.5rem;
+            }
+
+            #home h1 {
+                font-size: 1.5rem !important;
+                margin-bottom: 0.5rem;
+            }
+
+            #home p {
+                font-size: 1rem !important;
+                margin-bottom: 0.5rem;
+            }
+
+            #home .space-x-4>a {
+                display: block;
+                margin: 0.5rem 0;
+                width: 100%;
+                font-size: 1rem;
+                padding: 0.5rem 0;
+            }
+
+            /* Section padding and font size */
+            .section,
+            section {
+                padding: 1.5rem 0.5rem !important;
+            }
+
+            .section h2,
+            section h2 {
+                font-size: 1.3rem !important;
+                margin-bottom: 0.7rem;
+            }
+
+            .section p,
+            section p {
+                font-size: 0.95rem !important;
+                margin-bottom: 1rem;
+            }
+
+            /* Card adjustments */
+            .card,
+            .bg-white,
+            .bg-[var(--bg-light)] {
+                padding: 1rem !important;
+                margin: 0.5rem 0 !important;
+                font-size: 0.95rem !important;
+            }
+
+            /* Grid adjustments */
+            .grid,
+            .grid-cols-1,
+            .grid-cols-3,
+            .grid-cols-4,
+            .md\:grid-cols-3,
+            .md\:grid-cols-4 {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            /* Gallery carousel */
+            .carousel img {
+                width: 90vw !important;
+                height: 120px !important;
+            }
+
+            /* Video container */
+            .video-container {
+                padding-bottom: 60% !important;
+            }
+
+            /* Contact button */
+            .contact-btn {
+                right: 10px !important;
+                bottom: 10px !important;
+                padding: 0.5rem 1rem !important;
+                font-size: 1rem !important;
+            }
+
+            /* Footer adjustments */
+            footer {
+                padding: 1.5rem 0.5rem !important;
+            }
+
+            footer .h-12 {
+                height: 2.2rem !important;
+            }
+
+            footer .text-2xl,
+            footer .text-xl {
+                font-size: 1.1rem !important;
+            }
+
+            footer .text-lg,
+            footer .text-md {
+                font-size: 0.95rem !important;
+            }
+
+            /* Form adjustments */
+            #contact-form input,
+            #contact-form select,
+            #contact-form textarea {
+                font-size: 1rem !important;
+                padding: 0.5rem !important;
+            }
+
+            #contact-form button {
+                width: 100%;
+                font-size: 1rem !important;
+                padding: 0.5rem 0 !important;
+            }
+
+            /* Map height */
+            .map iframe {
+                height: 200px !important;
+            }
+        }
     </style>
 </head>
 
